@@ -5,6 +5,7 @@ In this project, we dockerized an existing rails application running with postgr
 First of all, we declared the dockerfile (dockerfile). This file is necessary to prepare the application environment.
 
 Then, we have been creat three docker-composer yml files:
+
 -- docker-compose.yml:
 In this composer we declared two containers (services): db & app, and we have been specified there volumes.
 
