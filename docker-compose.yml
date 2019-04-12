@@ -1,0 +1,29 @@
+version: '3.2'
+volumes:
+  postgres-data:
+  postgres-run:
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=docker_postgres
+      - POSTGRES_PASSWORD=
+      - POSTGRES_DB=postgres
+    volumes:
+      - type: 'volume'
+        source: postgres-run
+        target: /var/run/postgresql/
+      - type: 'volume'
+        source: postgres-data
+        target: /var/lib/postgresql/data
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    volumes:
+      - .:/test_docker_postgres_four
+      - type: 'volume'
+        source: postgres-run
+        target: /var/run/postgresql/

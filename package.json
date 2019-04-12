@@ -1,0 +1,5 @@
+{
+  "name": "test_docker_postgres_four",
+  "private": true,
+  "dependencies": {}
+}
